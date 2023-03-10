@@ -1,0 +1,27 @@
+extends base
+
+block content
+    br
+    br
+    section.made-by-creators
+        br
+        br
+        .made-by-creator-container
+            each search in searchDesign
+                .made-by-creators-div
+                    .product-image
+                        img(src=`./images/product/upload/tshirt/front/${search.front}.png` alt='')
+                    hr.hr
+                    .product-information
+                        br
+                        p= search.title
+                        br
+                        br
+                        .product-price-and-buy(style="display: flex; align-items: baseline;")
+                            //- - let price = &#x930;&#x941;&lrm
+                            p.price= search.price
+                            a(href=`product/${search.slug}`)
+                                button.buy-button BUY
+                        br
+
+    script(src='./js/index.js')

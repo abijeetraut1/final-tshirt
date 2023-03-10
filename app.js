@@ -41,9 +41,9 @@ app.use('/', viewRouter);
 app.use('/api/v1/product', apiRouter);
 app.use('/api/v1/user', userRouter);
 
-// app.all('*', (req, res, next) => {
-//     next(new AppError(`cannot find ${req.originalUrl} on this server`, 404));
-// });
+ app.all('*', (req, res, next) => {
+     next(new AppError(`cannot find ${req.originalUrl} on this server`, 404));
+ });
 
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 module.exports = app;
